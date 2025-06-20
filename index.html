@@ -108,6 +108,35 @@
       transform: translateY(-2px) scale(1.04);
     }
 
+    .stop-btn {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1em;
+      background: linear-gradient(90deg, #ff0055 0%, #fff600 100%);
+      color: #232946;
+      border: 3px solid #ff0055;
+      border-radius: 10px;
+      box-shadow: 0 4px 0 #181d27, 0 0 8px #ff0055cc;
+      margin: 1.5em auto 0 auto;
+      padding: 1em 2em;
+      cursor: pointer;
+      text-shadow: 1px 1px 0 #fff, 2px 2px 0 #ff0055;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      outline: none;
+      display: block;
+      min-width: 120px;
+    }
+    .stop-btn:active {
+      background: #ff0055;
+      color: #fff600;
+      transform: scale(0.97);
+      box-shadow: 0 2px 0 #181d27, 0 0 8px #ff0055cc;
+    }
+    .stop-btn:hover {
+      background: #fff600;
+      color: #ff0055;
+      box-shadow: 0 0 16px #fff600, 0 0 8px #ff0055cc;
+    }
+
     .corner {
       position: absolute;
       bottom: 10px;
@@ -161,6 +190,7 @@
   <div class="container">
     <h1>Grattis med Konfirmasjon!</h1>
     <div id="buttons"></div>
+    <button id="stopBtn" class="stop-btn">Staph</button>
   </div>
   <div class="corner">tilludvig &copy; 2025</div>
   <div id="nintendo-dude-wrapper">
@@ -190,6 +220,7 @@
         audioSource.src = `audio/${song}`;
         audio.load();
         audio.play();
+        setWalking(true);
       };
       buttonsDiv.appendChild(btn);
     });
@@ -207,6 +238,9 @@
       dudeImg.src = dudeSprites[dudeFrame];
       dudeFrame = (dudeFrame + 1) % 4;
     }, 180);
+
+    // Get the wrapper for jumping (ensure this is before any function that uses it)
+    const dudeWrapper = document.getElementById('nintendo-dude-wrapper');
 
     // Physics jump: fast up, slow fall
     function triggerJumpPhysics() {
@@ -233,12 +267,29 @@
         triggerJumpPhysics();
       }
     });
+    // Start/stop walking animation only when music plays
+    function setWalking(active) {
+      if (active) {
+        dudeWrapper.style.animationPlayState = '';
+      } else {
+        dudeWrapper.style.animationPlayState = 'paused';
+      }
+    }
+    setWalking(false); // Start paused
+    audio.addEventListener('play', () => setWalking(true));
+    audio.addEventListener('pause', () => setWalking(false));
     // Stop music when clicking the dude
     dudeImg.addEventListener('click', function(e) {
       audio.pause();
       audio.currentTime = 0;
-      console.log('Music stopped');
+      setWalking(false);
       e.stopPropagation(); // Prevent triggering jump
+    });
+    // Stop playback when 'Staph' button is clicked
+    document.getElementById('stopBtn').addEventListener('click', function(e) {
+      audio.pause();
+      audio.currentTime = 0;
+      setWalking(false);
     });
   </script>
 </body>
