@@ -192,6 +192,17 @@
   </style>
 </head>
 <body>
+    <script>
+      // Feature toggle: set to true to show the real site
+      const SHOW_SITE = false;
+      if (!SHOW_SITE) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('.container').style.display = 'none';
+          document.querySelector('.corner').style.display = 'none';
+          document.getElementById('stopBtn').style.display = 'none';
+        });
+      }
+    </script>
   <div class="pixel-bg"></div>
   <div class="container">
     <h1>Grattis med Konfirmasjon!</h1>
