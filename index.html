@@ -56,22 +56,50 @@
       opacity: 0.4;
       font-family: monospace;
     }
+
+    button {
+      background-color: #007777;
+      color: #00FFCC;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1em;
+      margin-top: 1em;
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-shadow: 0 0 6px #00ffcc, 0 0 12px #00ffaa;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+      background-color: #00FFCC;
+      color: #007777;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Grattis med Konfirmasjon!</h1>
+    <button id="playBtn">click me!</button>
   </div>
   <div class="corner">tilludvig &copy; 2025</div>
 
   <!-- Play local audio file once on page load -->
-<audio id="chiptune" autoplay>
+<audio id="chiptune">
   <source src="audio/Du er størst av barna,.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
   <script>
     const audio = document.getElementById('chiptune');
     audio.volume = 0.06;
+    const playBtn = document.getElementById('playBtn');
+    playBtn.addEventListener('click', () => {
+      audio.play();
+    });
   </script>
 </body>
 </html>
