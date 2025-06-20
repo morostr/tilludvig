@@ -128,10 +128,15 @@
       z-index: 10;
       pointer-events: none;
       animation: walk-dude 8s linear infinite alternate;
-      transition: bottom 0.4s cubic-bezier(.4,1.6,.6,1);
+      transition: bottom 0.2s cubic-bezier(.7,-0.5,.7,1.5);
     }
     .jumping {
-      animation: jump-dude 1.2s cubic-bezier(.4,1.6,.6,1);
+      transition: bottom 0.18s cubic-bezier(.7,-0.5,.7,1.5);
+      bottom: 180px !important;
+    }
+    .falling {
+      transition: bottom 1.2s cubic-bezier(.2,0,.4,1.2);
+      bottom: 18px !important;
     }
     .nintendo-dude {
       width: 120px;
@@ -202,6 +207,32 @@
       dudeImg.src = dudeSprites[dudeFrame];
       dudeFrame = (dudeFrame + 1) % 4;
     }, 180);
+
+    // Physics jump: fast up, slow fall
+    function triggerJumpPhysics() {
+      if (!dudeWrapper.classList.contains('jumping') && !dudeWrapper.classList.contains('falling')) {
+        dudeWrapper.classList.add('jumping');
+        setTimeout(() => {
+          dudeWrapper.classList.remove('jumping');
+          dudeWrapper.classList.add('falling');
+          setTimeout(() => {
+            dudeWrapper.classList.remove('falling');
+          }, 1200);
+        }, 180);
+      }
+    }
+    // Random jump
+    function randomJump() {
+      triggerJumpPhysics();
+      setTimeout(randomJump, 3000 + Math.random() * 4000);
+    }
+    setTimeout(randomJump, 2000 + Math.random() * 2000);
+    // Click background to jump
+    document.body.addEventListener('click', function(e) {
+      if (e.target === document.body || e.target.classList.contains('pixel-bg')) {
+        triggerJumpPhysics();
+      }
+    });
   </script>
 </body>
 </html>
