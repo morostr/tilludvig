@@ -2,38 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grattis!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
     body {
-      background: linear-gradient(135deg, #111 0%, #444 100%);
+      background: radial-gradient(ellipse at center, #111 0%, #222 100%);
       height: 100vh;
       margin: 0;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: 'Press Start 2P', monospace, 'Courier New', Courier, monospace;
+      font-family: 'Press Start 2P', monospace;
       color: #00FFCC;
-      text-shadow: 0 0 8px #00FFCC, 0 0 16px #222;
+      overflow: hidden;
     }
+
     .container {
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.9);
       padding: 2em 3em;
-      border-radius: 16px;
-      border: 2px solid #00FFCC;
-      box-shadow: 0 0 32px #00FFCC33;
+      border-radius: 20px;
+      border: 3px dashed #00FFFF;
+      box-shadow: 0 0 40px #00FFD933, inset 0 0 20px #00FFD9;
+      animation: pulse 3s infinite;
     }
+
     h1 {
-      font-size: 2em;
+      font-size: 1.5em;
+      text-align: center;
       margin: 0;
-      letter-spacing: 0.1em;
-      animation: flicker 1.5s infinite alternate;
+      text-shadow: 0 0 6px #00ffcc, 0 0 12px #00ffaa, 0 0 24px #007777;
+      animation: flicker 2s infinite alternate;
     }
+
     @keyframes flicker {
-      from { opacity: 1; }
-      to { opacity: 0.7; text-shadow: 0 0 12px #00FFCC, 0 0 32px #fff; }
+      0% { opacity: 1; text-shadow: 0 0 6px #00ffcc; }
+      50% { opacity: 0.8; text-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffff; }
+      100% { opacity: 1; text-shadow: 0 0 16px #00ffcc, 0 0 32px #00ffff; }
     }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px #00FFD933, inset 0 0 10px #00FFD9; }
+      50% { box-shadow: 0 0 40px #00FFD999, inset 0 0 20px #00FFD9; }
+    }
+
     .corner {
       position: absolute;
       bottom: 10px;
@@ -44,24 +57,21 @@
       font-family: monospace;
     }
   </style>
-  <!-- Retro font from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Hello World</h1>
+    <h1>Grattis med Konfirmasjon!</h1>
   </div>
   <div class="corner">tilludvig &copy; 2025</div>
-  <!-- Tiny, cheezy MIDI (optional, can remove below if not wanted) -->
-  <audio id="midi" autoplay loop>
-    <source src="https://cdn.jsdelivr.net/gh/gleitz/midi-js-soundfonts@gh-pages/MusyngKite/01_Acoustic_Grand_Piano_sf2_file.mid" type="audio/midi">
-    <!-- If browser doesn't support MIDI, fallback to nothing -->
+
+  <!-- 8-bit Chiptune (replace with any fun tune if preferred) -->
+  <audio id="chiptune" autoplay loop>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kevin_MacLeod/8bit_Dungeon_Boss/Kevin_MacLeod_-_8bit_Dungeon_Boss.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
   <script>
-    // Try to play the MIDI as audio (not all browsers support .mid natively).
-    // You can remove this script and audio tag if you don't want music!
-    const audio = document.getElementById('midi');
-    audio.volume = 0.08;
+    const audio = document.getElementById('chiptune');
+    audio.volume = 0.06;
   </script>
 </body>
 </html>
