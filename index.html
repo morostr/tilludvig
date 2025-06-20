@@ -65,10 +65,11 @@
   <div class="corner">tilludvig &copy; 2025</div>
 
   <!-- 8-bit Chiptune (replace with any fun tune if preferred) -->
-  <audio id="chiptune" autoplay loop>
-    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kevin_MacLeod/8bit_Dungeon_Boss/Kevin_MacLeod_-_8bit_Dungeon_Boss.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+<!-- Working 8-bit loop with no CORS issues -->
+<audio id="chiptune" autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_b6bfa8c48b.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
   <script>
     const audio = document.getElementById('chiptune');
     audio.volume = 0.06;
