@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      background: linear-gradient(135deg, #111 0%, #444 100%);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Press Start 2P', monospace, 'Courier New', Courier, monospace;
+      color: #00FFCC;
+      text-shadow: 0 0 8px #00FFCC, 0 0 16px #222;
+    }
+    .container {
+      background: rgba(0,0,0,0.85);
+      padding: 2em 3em;
+      border-radius: 16px;
+      border: 2px solid #00FFCC;
+      box-shadow: 0 0 32px #00FFCC33;
+    }
+    h1 {
+      font-size: 2em;
+      margin: 0;
+      letter-spacing: 0.1em;
+      animation: flicker 1.5s infinite alternate;
+    }
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.7; text-shadow: 0 0 12px #00FFCC, 0 0 32px #fff; }
+    }
+    .corner {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 0.75em;
+      color: #7fffd4b0;
+      opacity: 0.4;
+      font-family: monospace;
+    }
+  </style>
+  <!-- Retro font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Hello World</h1>
+  </div>
+  <div class="corner">tilludvig &copy; 2025</div>
+  <!-- Tiny, cheezy MIDI (optional, can remove below if not wanted) -->
+  <audio id="midi" autoplay loop>
+    <source src="https://cdn.jsdelivr.net/gh/gleitz/midi-js-soundfonts@gh-pages/MusyngKite/01_Acoustic_Grand_Piano_sf2_file.mid" type="audio/midi">
+    <!-- If browser doesn't support MIDI, fallback to nothing -->
+  </audio>
+  <script>
+    // Try to play the MIDI as audio (not all browsers support .mid natively).
+    // You can remove this script and audio tag if you don't want music!
+    const audio = document.getElementById('midi');
+    audio.volume = 0.08;
+  </script>
+</body>
+</html>
