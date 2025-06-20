@@ -233,6 +233,13 @@
         triggerJumpPhysics();
       }
     });
+    // Stop music when clicking the dude
+    dudeImg.addEventListener('click', function(e) {
+      audio.pause();
+      audio.currentTime = 0;
+      console.log('Music stopped');
+      e.stopPropagation(); // Prevent triggering jump
+    });
   </script>
 </body>
 </html>
