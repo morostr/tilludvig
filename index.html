@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Grattis!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -79,6 +80,48 @@
       color: #007777;
       transform: scale(1.05);
     }
+
+    .song-btn {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1em;
+      background: linear-gradient(90deg, #00FFD9 0%, #00FFCC 100%);
+      color: #222;
+      border: 3px solid #00FFCC;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #00FFD9, 0 0 2px #00FFCC inset;
+      margin: 0.5em 0.5em 0 0;
+      padding: 0.7em 1.5em;
+      cursor: pointer;
+      text-shadow: 1px 1px 0 #fff, 2px 2px 0 #00FFD9;
+      transition: background 0.2s, transform 0.1s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      animation: btn-flicker 2s infinite alternate;
+    }
+    .song-btn:active {
+      background: #00FFCC;
+      color: #111;
+      transform: scale(0.97);
+      box-shadow: 0 0 2px #00FFD9;
+    }
+    @keyframes btn-flicker {
+      0% { filter: brightness(1.1); }
+      50% { filter: brightness(0.8) hue-rotate(10deg); }
+      100% { filter: brightness(1.2) hue-rotate(-10deg); }
+    }
+    /* Fun: Each button gets a different border color for 8bit chaos */
+    .song-btn:nth-child(1) { border-color: #FF00CC; box-shadow: 0 0 8px #FF00CC; }
+    .song-btn:nth-child(2) { border-color: #00FFCC; box-shadow: 0 0 8px #00FFCC; }
+    .song-btn:nth-child(3) { border-color: #FFFF00; box-shadow: 0 0 8px #FFFF00; }
+    .song-btn:nth-child(4) { border-color: #FF6600; box-shadow: 0 0 8px #FF6600; }
+    .song-btn:hover {
+      background: #fff600;
+      color: #222;
+      filter: contrast(1.5) brightness(1.2);
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 #00FFD9;
+      box-shadow: 0 0 16px #fff600, 0 0 8px #00FFD9;
+    }
   </style>
 </head>
 <body>
@@ -95,18 +138,18 @@
 </audio>
   <script>
     const audio = document.getElementById('chiptune');
-    audio.volume = 0.06;
+    audio.volume = 1.00;
     const audioSource = document.getElementById('audioSource');
     const songs = [
-      "Bål.mp3",
-      "Du er størst av barna,.mp3",
+      "Bål.mp3",      
       "Vennebyen.mp3",
       "green.mp3"
     ];
     const buttonsDiv = document.getElementById('buttons');
-    songs.forEach(song => {
+    songs.forEach((song, i) => {
       const btn = document.createElement('button');
       btn.textContent = song.replace('.mp3', '');
+      btn.className = 'song-btn';
       btn.onclick = () => {
         audioSource.src = `audio/${song}`;
         audio.load();
