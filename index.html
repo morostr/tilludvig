@@ -118,6 +118,22 @@
       font-family: monospace;
       z-index: 2;
     }
+
+    .nintendo-dude {
+      position: fixed;
+      left: 0;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      z-index: 10;
+      image-rendering: pixelated;
+      animation: walk-dude 6s linear infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes walk-dude {
+      0% { left: 0; }
+      100% { left: calc(100vw - 48px); }
+    }
   </style>
 </head>
 <body>
@@ -127,6 +143,7 @@
     <div id="buttons"></div>
   </div>
   <div class="corner">tilludvig &copy; 2025</div>
+  <img src="nintendo-dude.svg" alt="Nintendo Dude" class="nintendo-dude">
 
   <!-- Play local audio file once on page load -->
 <audio id="chiptune">
