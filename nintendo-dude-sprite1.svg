@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="240" viewBox="0 0 40 80">
+  <!-- Frame 1: Standing, both legs straight, sideview -->
+  <g>
+    <!-- Back leg -->
+    <rect x="18" y="44" width="4" height="26" fill="#1a273a"/>
+    <rect x="18" y="70" width="4" height="6" fill="#222"/>
+    <!-- Front leg -->
+    <rect x="14" y="44" width="4" height="26" fill="#2d3e50"/>
+    <rect x="14" y="70" width="4" height="6" fill="#222"/>
+    <!-- Suit body -->
+    <rect x="10" y="20" width="16" height="22" fill="#3a5a8c"/>
+    <!-- Shirt -->
+    <rect x="14" y="28" width="8" height="8" fill="#fff"/>
+    <!-- Tie -->
+    <rect x="17" y="30" width="2" height="8" fill="#ff0055"/>
+    <!-- Head (sideview) -->
+    <rect x="12" y="4" width="12" height="14" fill="#ffe0b2"/>
+    <rect x="20" y="10" width="2" height="2" fill="#222"/>
+    <rect x="23" y="12" width="2" height="2" fill="#e0b080"/>
+    <!-- Arms -->
+    <rect x="8" y="22" width="4" height="18" fill="#3a5a8c"/>
+    <rect x="22" y="22" width="4" height="18" fill="#3a5a8c"/>
+    <!-- Hands -->
+    <rect x="8" y="38" width="4" height="4" fill="#ffe0b2"/>
+    <rect x="22" y="38" width="4" height="4" fill="#ffe0b2"/>
+  </g>
+</svg>

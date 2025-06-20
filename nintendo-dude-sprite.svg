@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 32 32">
+  <!-- Frame 1: Standing -->
+  <g id="frame1">
+    <rect x="12" y="20" width="8" height="8" fill="#222"/>
+    <rect x="14" y="24" width="2" height="6" fill="#ffb600"/>
+    <rect x="16" y="24" width="2" height="6" fill="#00ffd9"/>
+    <rect x="12" y="12" width="8" height="8" fill="#ffb600"/>
+    <rect x="14" y="8" width="4" height="4" fill="#ffe0b2"/>
+    <rect x="15" y="10" width="1" height="1" fill="#222"/>
+    <rect x="18" y="10" width="1" height="1" fill="#222"/>
+    <rect x="14" y="16" width="2" height="2" fill="#fff"/>
+    <rect x="16" y="16" width="2" height="2" fill="#fff"/>
+  </g>
+  <!-- Frame 2: Left leg forward -->
+  <g id="frame2" style="display:none">
+    <rect x="12" y="20" width="8" height="8" fill="#222"/>
+    <rect x="14" y="26" width="2" height="4" fill="#ffb600"/>
+    <rect x="16" y="24" width="2" height="6" fill="#00ffd9"/>
+    <rect x="12" y="12" width="8" height="8" fill="#ffb600"/>
+    <rect x="14" y="8" width="4" height="4" fill="#ffe0b2"/>
+    <rect x="15" y="10" width="1" height="1" fill="#222"/>
+    <rect x="18" y="10" width="1" height="1" fill="#222"/>
+    <rect x="14" y="16" width="2" height="2" fill="#fff"/>
+    <rect x="16" y="16" width="2" height="2" fill="#fff"/>
+  </g>
+  <!-- Frame 3: Both legs out -->
+  <g id="frame3" style="display:none">
+    <rect x="12" y="20" width="8" height="8" fill="#222"/>
+    <rect x="14" y="26" width="2" height="4" fill="#ffb600"/>
+    <rect x="16" y="26" width="2" height="4" fill="#00ffd9"/>
+    <rect x="12" y="12" width="8" height="8" fill="#ffb600"/>
+    <rect x="14" y="8" width="4" height="4" fill="#ffe0b2"/>
+    <rect x="15" y="10" width="1" height="1" fill="#222"/>
+    <rect x="18" y="10" width="1" height="1" fill="#222"/>
+    <rect x="14" y="16" width="2" height="2" fill="#fff"/>
+    <rect x="16" y="16" width="2" height="2" fill="#fff"/>
+  </g>
+  <!-- Frame 4: Right leg forward -->
+  <g id="frame4" style="display:none">
+    <rect x="12" y="20" width="8" height="8" fill="#222"/>
+    <rect x="14" y="24" width="2" height="6" fill="#ffb600"/>
+    <rect x="16" y="26" width="2" height="4" fill="#00ffd9"/>
+    <rect x="12" y="12" width="8" height="8" fill="#ffb600"/>
+    <rect x="14" y="8" width="4" height="4" fill="#ffe0b2"/>
+    <rect x="15" y="10" width="1" height="1" fill="#222"/>
+    <rect x="18" y="10" width="1" height="1" fill="#222"/>
+    <rect x="14" y="16" width="2" height="2" fill="#fff"/>
+    <rect x="16" y="16" width="2" height="2" fill="#fff"/>
+  </g>
+</svg>

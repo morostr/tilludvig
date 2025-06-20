@@ -119,20 +119,35 @@
       z-index: 2;
     }
 
-    .nintendo-dude {
+    #nintendo-dude-wrapper {
       position: fixed;
       left: 0;
       bottom: 18px;
-      width: 48px;
-      height: 48px;
+      width: 120px;
+      height: 240px;
       z-index: 10;
-      image-rendering: pixelated;
-      animation: walk-dude 6s linear infinite alternate;
       pointer-events: none;
+      animation: walk-dude 8s linear infinite alternate;
+      transition: bottom 0.4s cubic-bezier(.4,1.6,.6,1);
+    }
+    .jumping {
+      animation: jump-dude 1.2s cubic-bezier(.4,1.6,.6,1);
+    }
+    .nintendo-dude {
+      width: 120px;
+      height: 240px;
+      image-rendering: pixelated;
+      display: block;
     }
     @keyframes walk-dude {
       0% { left: 0; }
-      100% { left: calc(100vw - 48px); }
+      100% { left: calc(100vw - 120px); }
+    }
+    @keyframes jump-dude {
+      0% { bottom: 18px; }
+      20% { bottom: 120px; }
+      60% { bottom: 120px; }
+      100% { bottom: 18px; }
     }
   </style>
 </head>
@@ -143,7 +158,9 @@
     <div id="buttons"></div>
   </div>
   <div class="corner">tilludvig &copy; 2025</div>
-  <img src="nintendo-dude.svg" alt="Nintendo Dude" class="nintendo-dude">
+  <div id="nintendo-dude-wrapper">
+    <img id="nintendoDude" class="nintendo-dude" src="nintendo-dude-sprite1.svg" alt="Nintendo Dude">
+  </div>
 
   <!-- Play local audio file once on page load -->
 <audio id="chiptune">
@@ -171,6 +188,20 @@
       };
       buttonsDiv.appendChild(btn);
     });
+
+    // Animate Nintendo dude by swapping between four SVG sprite images
+    const dudeImg = document.getElementById('nintendoDude');
+    const dudeSprites = [
+      'nintendo-dude-sprite1.svg',
+      'nintendo-dude-sprite2.svg',
+      'nintendo-dude-sprite3.svg',
+      'nintendo-dude-sprite4.svg'
+    ];
+    let dudeFrame = 0;
+    setInterval(() => {
+      dudeImg.src = dudeSprites[dudeFrame];
+      dudeFrame = (dudeFrame + 1) % 4;
+    }, 180);
   </script>
 </body>
 </html>
