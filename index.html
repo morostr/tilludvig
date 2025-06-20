@@ -84,21 +84,35 @@
 <body>
   <div class="container">
     <h1>Grattis med Konfirmasjon!</h1>
-    <button id="playBtn">click me!</button>
+    <div id="buttons"></div>
   </div>
   <div class="corner">tilludvig &copy; 2025</div>
 
   <!-- Play local audio file once on page load -->
 <audio id="chiptune">
-  <source src="audio/Du er størst av barna,.mp3" type="audio/mpeg">
+  <source id="audioSource" src="" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
   <script>
     const audio = document.getElementById('chiptune');
     audio.volume = 0.06;
-    const playBtn = document.getElementById('playBtn');
-    playBtn.addEventListener('click', () => {
-      audio.play();
+    const audioSource = document.getElementById('audioSource');
+    const songs = [
+      "Bål.mp3",
+      "Du er størst av barna,.mp3",
+      "Vennebyen.mp3",
+      "green.mp3"
+    ];
+    const buttonsDiv = document.getElementById('buttons');
+    songs.forEach(song => {
+      const btn = document.createElement('button');
+      btn.textContent = song.replace('.mp3', '');
+      btn.onclick = () => {
+        audioSource.src = `audio/${song}`;
+        audio.load();
+        audio.play();
+      };
+      buttonsDiv.appendChild(btn);
     });
   </script>
 </body>
