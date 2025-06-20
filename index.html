@@ -9,7 +9,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
     body {
-      background: linear-gradient(135deg, #ffb6c1 0%, #00ffd9 100%);
+      background: linear-gradient(135deg, #181d27 0%, #2b2d42 100%);
       min-height: 100vh;
       margin: 0;
       display: flex;
@@ -21,48 +21,28 @@
       position: relative;
     }
     .pixel-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.18;
-      background-image: repeating-linear-gradient(90deg, #fff 0 2px, transparent 2px 32px),
-        repeating-linear-gradient(180deg, #fff 0 2px, transparent 2px 32px);
+      display: none; /* Hide pixel grid for a cleaner look */
     }
 
     .container {
       position: relative;
       z-index: 1;
-      background: rgba(0, 0, 0, 0.92);
-      padding: 2.5em 3.5em 2em 3.5em;
-      border-radius: 0;
-      border: 8px solid #fff600;
-      box-shadow: 0 0 0 8px #00ffd9, 0 0 40px #ffb6c1, 0 0 0 16px #222;
-      outline: 4px solid #ff00cc;
-      outline-offset: 8px;
-      animation: pulse 3s infinite;
+      background: linear-gradient(145deg, #232946 60%, #121629 100%);
+      padding: 2.5em 3em 2em 3em;
+      border-radius: 18px;
+      border: 4px solid #00ffd9;
+      box-shadow: 0 12px 32px #000a, 0 2px 8px #00ffd9cc, 0 0 0 8px #232946 inset;
+      outline: none;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h1 {
-      font-size: 2em;
+      font-size: 1.7em;
       text-align: center;
-      margin: 0 0 1.5em 0;
-      text-shadow: 0 0 6px #00ffcc, 0 0 12px #00ffaa, 0 0 24px #ff00cc, 2px 2px 0 #fff600;
-      animation: flicker 2s infinite alternate;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 1; text-shadow: 0 0 6px #00ffcc; }
-      50% { opacity: 0.8; text-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffff; }
-      100% { opacity: 1; text-shadow: 0 0 16px #00ffcc, 0 0 32px #00ffff; }
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 20px #00FFD933, inset 0 0 10px #00FFD9; }
-      50% { box-shadow: 0 0 40px #00FFD999, inset 0 0 20px #00FFD9; }
+      margin: 0 0 1.2em 0;
+      text-shadow: 0 2px 0 #00ffd9, 0 4px 0 #181d27, 0 0 16px #00ffd9, 2px 2px 0 #fff600;
     }
 
     #buttons {
@@ -70,7 +50,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1em;
-      margin-top: 1.5em;
+      margin-top: 1.2em;
     }
 
     button {
@@ -99,40 +79,33 @@
     .song-btn {
       font-family: 'Press Start 2P', monospace;
       font-size: 1em;
-      background: linear-gradient(90deg, #fff600 0%, #ffb6c1 100%);
-      color: #222;
-      border: 4px solid #00ffd9;
-      border-radius: 0;
-      box-shadow: 4px 4px 0 #222, 0 0 16px #ff00cc;
+      background: linear-gradient(145deg, #232946 60%, #181d27 100%);
+      color: #fff600;
+      border: 3px solid #00ffd9;
+      border-radius: 10px;
+      box-shadow: 0 6px 0 #181d27, 0 12px 24px #000a, 0 0 8px #00ffd9cc;
       margin: 0;
-      padding: 1.2em 2.2em;
+      padding: 1em 2em 1.2em 2em;
       cursor: pointer;
-      text-shadow: 2px 2px 0 #fff, 3px 3px 0 #00FFD9;
+      text-shadow: 0 2px 0 #00ffd9, 0 4px 0 #181d27, 0 0 8px #00ffd9;
       transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      outline: 2px solid #fff;
-      outline-offset: -6px;
+      outline: none;
+      min-width: 140px;
       position: relative;
-      overflow: hidden;
-      animation: btn-flicker 2s infinite alternate;
-      min-width: 180px;
     }
     .song-btn:active {
       background: #00FFCC;
-      color: #111;
-      transform: scale(0.97);
-      box-shadow: 2px 2px 0 #222;
+      color: #181d27;
+      transform: translateY(4px) scale(0.98);
+      box-shadow: 0 2px 0 #181d27, 0 4px 8px #00ffd9cc;
     }
-    .song-btn:nth-child(1) { border-color: #FF00CC; box-shadow: 4px 4px 0 #222, 0 0 16px #FF00CC; background: linear-gradient(90deg, #fff600 0%, #FF00CC 100%); }
-    .song-btn:nth-child(2) { border-color: #00FFCC; box-shadow: 4px 4px 0 #222, 0 0 16px #00FFCC; background: linear-gradient(90deg, #fff600 0%, #00FFCC 100%); }
-    .song-btn:nth-child(3) { border-color: #FFFF00; box-shadow: 4px 4px 0 #222, 0 0 16px #FFFF00; background: linear-gradient(90deg, #fff600 0%, #FFFF00 100%); }
-    .song-btn:nth-child(4) { border-color: #00ffd9; box-shadow: 4px 4px 0 #222, 0 0 16px #00ffd9; background: linear-gradient(90deg, #fff600 0%, #00ffd9 100%); }
     .song-btn:hover {
-      background: #ffb6c1;
-      color: #fff600;
-      filter: contrast(1.5) brightness(1.2);
-      text-shadow: 2px 2px 0 #fff, 3px 3px 0 #00FFD9;
-      box-shadow: 0 0 32px #fff600, 0 0 16px #00FFD9, 6px 6px 0 #222;
-      outline: 3px solid #ff00cc;
+      background: linear-gradient(145deg, #00ffd9 60%, #fff600 100%);
+      color: #232946;
+      filter: contrast(1.2) brightness(1.1);
+      text-shadow: 0 2px 0 #fff, 0 4px 0 #00ffd9;
+      box-shadow: 0 2px 0 #181d27, 0 0 24px #fff600, 0 0 8px #00ffd9cc;
+      transform: translateY(-2px) scale(1.04);
     }
 
     .corner {
