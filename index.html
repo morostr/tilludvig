@@ -194,12 +194,21 @@
 <body>
     <script>
       // Feature toggle: set to true to show the real site
-      const SHOW_SITE = false;
+      const SHOW_SITE = true;
       if (!SHOW_SITE) {
         document.addEventListener('DOMContentLoaded', function() {
           document.querySelector('.container').style.display = 'none';
           document.querySelector('.corner').style.display = 'none';
           document.getElementById('stopBtn').style.display = 'none';
+          // Add placeholder overlay
+          const placeholder = document.createElement('div');
+          placeholder.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;background:#222;color:#ccc;font-family:sans-serif;font-size:2em;z-index:99999;';
+          placeholder.textContent = 'Coming soon...';
+          document.body.appendChild(placeholder);
+
+          // Move the placeholder overlay to just after the dude wrapper, so the dude stays on top
+          const dudeWrapper = document.getElementById('nintendo-dude-wrapper');
+          dudeWrapper.parentNode.insertBefore(placeholder, dudeWrapper.nextSibling);
         });
       }
     </script>
